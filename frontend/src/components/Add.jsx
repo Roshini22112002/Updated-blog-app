@@ -19,7 +19,7 @@ const Add = () => {
 
   const handleAdd = () => {
     if(location.state!=null){
-      axiosInstance.put("http://localhost:5000/products/update/"+location.state.product._id,form)
+      axiosInstance.put("/products/update/"+location.state.product._id,form)
       .then((res)=>{
         
         alert("Product added")
@@ -30,7 +30,7 @@ const Add = () => {
         console.log(err)
       })
     }else{
-    axiosInstance.post('http://localhost:5000/products/add', form) 
+    axiosInstance.post('/products/add', form) 
       .then(() => {
         alert('Product Added!');
         navigate('/'); 
