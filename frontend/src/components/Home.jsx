@@ -14,7 +14,7 @@ const Home = () => {
     const[products,setProducts]=useState([])
     let token=localStorage.getItem('token')
     useEffect(()=>{
-            axios.get("http://localhost:5000/products")
+            axios.get("/api/products")
             .then((response)=>{
                 setProducts(response.data.products)
             })
@@ -24,7 +24,7 @@ const Home = () => {
 
     },[])
     const deleteProduct=(id)=>{
-      axiosInstance.delete("http://localhost:5000/products/delete/"+id)
+      axiosInstance.delete("/products/delete/"+id)
       .then((res)=>{
         alert("deleted successfully")
         window.location.reload()
